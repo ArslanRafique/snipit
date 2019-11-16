@@ -7,9 +7,9 @@
     "install:frontend": "cd ./frontend && npm install",
     "install:backend": "cd ./backend && npm install",
     "install:all": "npm-run-all --parallel install:frontend install:backend",
-    "start:backend": "cd ./backend && npm start:dev",
+    "start:backend": "cd ./backend && npm run start:dev",
     "start:frontend": "cd ./frontend && npm start",
-    "start": "npm-run-all --parallel start:backend start:frontend",
+    "start": "npm-run-all --parallel start:backend start:frontend"
   },
   "browserslist": {
     "production": [

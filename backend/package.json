@@ -7,7 +7,7 @@
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "start": "npm run build && electron ./dist/backend/src/main.js",
-    "clean": "rimraf ./dist/*",
+    "clean": "rimraf dist",
     "start:dev": "npm run clean && NODE_ENV=development npm start"
   },
   "repository": "https://github.com/ArslanRafique/snipit",
