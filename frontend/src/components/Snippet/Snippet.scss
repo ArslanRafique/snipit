@@ -1,0 +1,34 @@
+.Snippet {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px 0px 0px;
+
+  &:hover {
+      background-color: #2E2F2A;
+  }
+
+  &.activeSnippet {
+    background-color: #2E2F2A;
+  }
+
+  .Description {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #e5e5e5;
+    text-align: left;
+    padding: 6px;
+  }
+
+  .DateModified {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #9B9B9B;
+    text-align: right;
+    margin-left: 8px;
+    border-bottom: solid 0.5px #2F312A;
+    padding: 4px 12px;
+  }
+}

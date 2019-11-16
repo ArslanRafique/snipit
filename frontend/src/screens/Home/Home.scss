@@ -1,0 +1,22 @@
+.Home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+
+    .Navigation {
+        flex-grow: 1;
+        background-color: #272823;
+        height: 100%;
+        max-width: 300px;
+        border-right: solid 0.5px #2F312A;
+    }
+
+    .EditorContainer {
+        flex-grow: 4;
+        height: 100%;
+    }
+}

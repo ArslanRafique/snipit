@@ -1,0 +1,37 @@
+{
+  "name": "snipit",
+  "version": "1.0.0",
+  "description": "Backend for SnipIt",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "npm run build && electron ./dist/backend/src/main.js",
+    "clean": "rimraf ./dist/*",
+    "start:dev": "npm run clean && NODE_ENV=development npm start"
+  },
+  "repository": "https://github.com/ArslanRafique/snipit",
+  "keywords": [
+    "Snippet",
+    "Editor",
+    "Desktop"
+  ],
+  "author": "Arslan Rafique",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^6.0.8",
+    "rimraf": "^3.0.0",
+    "tslint": "^5.19.0",
+    "typescript": "^3.6.0"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/electron-store": "^3.2.0",
+    "@types/express": "^4.17.2",
+    "@types/node": "^12.12.7",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "electron-store": "^5.1.0",
+    "express": "^4.17.1"
+  }
+}

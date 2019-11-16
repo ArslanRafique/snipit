@@ -1,0 +1,10 @@
+{
+    "000000000000000000000000007d0000" : {
+        "url" : "https://firebasestorage.googleapis.com/v0/b/co-home.appspot.com/o/firmware%2Fbinaries%2FCO_SMART_PLUG-10009-UPDATE-410.bin?alt=media&token=53bfe58b-497d-42fd-8eab-7529b6b230f0",
+        "version" : "10009"
+    },
+    "00000000000000000000000033270000" : {
+        "url" : "https://firebasestorage.googleapis.com/v0/b/co-home.appspot.com/o/firmware%2Fbinaries%2FWIFI_SPMINI_CC-10016-UPDATE-403.bin?alt=media&token=7a7e944b-307f-4cbe-810b-f5c7dac40cd4",
+        "version" : "10016"
+    }
+}

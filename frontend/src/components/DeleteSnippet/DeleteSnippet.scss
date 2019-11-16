@@ -1,0 +1,15 @@
+.DeleteSnippet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+
+    img {
+        width: 18px;
+        height: 18px;
+
+        &.not-active {
+            opacity: 0.5;
+        }
+    }
+}

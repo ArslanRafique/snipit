@@ -1,0 +1,17 @@
+.ControlsBar {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-grow: 1;
+
+    .LeftContainer {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+    }
+
+    .RightContainer {
+        display: flex;
+        flex-direction: row;
+    }
+}

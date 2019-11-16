@@ -1,0 +1,38 @@
+.SnippetDescription {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: #464646;
+
+  input {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    background-color: #464646;
+    outline: none;
+    border: none;
+    padding: 0 20px;
+    color: #cecece;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.DescriptionInput {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.Loader {
+  width: 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}

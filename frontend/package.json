@@ -1,0 +1,46 @@
+{
+  "name": "snipit-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "^24.0.22",
+    "@types/node": "^12.12.7",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.4",
+    "@types/uuid": "^3.4.6",
+    "ace-builds": "^1.4.7",
+    "react": "^16.11.0",
+    "react-ace": "^8.0.0",
+    "react-dom": "^16.11.0",
+    "react-hot-loader": "^4.12.16",
+    "react-scripts": "3.2.0",
+    "typescript": "^3.7.2",
+    "uuid": "^3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "author": "Arslan Rafique",
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^4.13.0"
+  }
+}
