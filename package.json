@@ -16,8 +16,9 @@
     "copy:frontend": "npm-run-all copy:build copy:static:js copy:static:css",
     "build:frontend": "cd ./frontend && npm run build",
     "build:backend": "cd ./backend && npm run build",
+    "backend:copyicon": "copyfiles -f ./backend/src/icon.png ./backend/dist/",
     "dist:backend": "cd ./backend && npm run dist",
-    "dist": "npm-run-all build:frontend build:backend copy:frontend dist:backend"
+    "dist": "npm-run-all build:frontend build:backend copy:frontend backend:copyicon dist:backend"
     
   },
   "browserslist": {
