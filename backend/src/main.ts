@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, protocol } from "electron";
 import ElectronStore from "electron-store";
 import * as path from "path";
 import { initServer } from "./server/initServer";
@@ -16,21 +16,21 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, "preload.js")
     },
-    width: 800,
+    width: 800
   });
 
   if (isDev) {
     mainWindow.loadURL("http://localhost:3000");
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools();
   } else {
     // and load the index.html of the app.
-    mainWindow.loadFile(path.join(__dirname, "../index.html"));
+    mainWindow.loadFile(
+      path.join(__dirname, "../../frontend/build/index.html"),
+    );
   }
-
-
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on("closed", () => {
