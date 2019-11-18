@@ -1,0 +1,4 @@
+before_script:
+  - npm install
+  - npm run install:all
+script: npm run test

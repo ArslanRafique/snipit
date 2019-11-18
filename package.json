@@ -18,7 +18,8 @@
     "build:backend": "cd ./backend && npm run build",
     "backend:copyicon": "copyfiles -f ./backend/src/icon.png ./backend/dist/",
     "dist:backend": "cd ./backend && npm run dist",
-    "dist": "npm-run-all build:frontend build:backend copy:frontend backend:copyicon dist:backend"
+    "dist": "npm-run-all build:frontend build:backend copy:frontend backend:copyicon dist:backend",
+    "test": "cd ./frontend && npm run jest"
     
   },
   "browserslist": {

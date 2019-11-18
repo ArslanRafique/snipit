@@ -1,5 +1,7 @@
 # SnipIt
 
+![](https://travis-ci.org/ArslanRafique/snipit.svg?branch=development)
+
 #### SnipIt let's you save Snippets locally.
 
 ![](snipit.gif)

@@ -1,9 +1,14 @@
 import React from "react";
 import AceEditor from "react-ace";
-import 'ace-builds';
-import 'ace-builds/webpack-resolver';
-import "ace-builds/src-noconflict/theme-monokai";
-import "ace-builds/src-noconflict/ext-language_tools";
+
+if( process.env.NODE_ENV !== "test") {
+  require("ace-builds");
+  require("ace-builds/src-noconflict/theme-monokai");
+  require("ace-builds/src-noconflict/ext-language_tools");
+  require("ace-builds/src-noconflict/ext-beautify");
+  require("ace-builds/webpack-resolver");
+  console.log("TEST>>>>>>>>>");
+}
 
 import SnippetDescriptionBar from "../SnippetDescriptionBar/SnippetDescriptionBar";
 import "./Editor.scss";
