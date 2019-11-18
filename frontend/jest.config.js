@@ -2,7 +2,7 @@ const {defaults} = require('jest-config');
 
 module.exports = {
   roots: ["<rootDir>/src"],
-  testMatch: ["**/*.+(ts|tsx|js|scss)", "**/?(*.)+(spec|test).+(ts|tsx|js)"],
+  testMatch: ["**/?(*.)+(spec|test).+(ts|tsx|js)"], //"**/*.+(ts|tsx|js|scss)", 
   transform: {
     "^.+\\.(ts|tsx)?$": "ts-jest",
     ".+\\.(css|styl|less|sass|scss)$":
