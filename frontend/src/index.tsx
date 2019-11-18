@@ -4,6 +4,12 @@ import './index.scss';
 import App from './screens/App';
 import * as serviceWorker from './serviceWorker';
 
+import 'ace-builds';
+import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/ext-language_tools";
+import "ace-builds/src-noconflict/ext-beautify";
+import 'ace-builds/webpack-resolver';
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
