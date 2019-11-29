@@ -2,6 +2,7 @@ import React from "react";
 import AceEditor from "react-ace";
 import SnippetType from "../../../../common/types/SnippetType";
 import { useStore } from "../../store";
+import { dateFormat } from "../../utils/dateFormat";
 import AddSnippet from "../AddSnippet/AddSnippet";
 import SnippetDescriptionBar from "../SnippetDescriptionBar/SnippetDescriptionBar";
 import "./Editor.scss";
@@ -33,7 +34,11 @@ const Editor: React.FC = () => {
         JSON.stringify(activeSnippet)
       );
 
+      const currentDate = new Date();
       updatedSnippet.content = newCode;
+      updatedSnippet.date = currentDate
+      updatedSnippet.dateSearch = dateFormat(currentDate);
+
       changeActiveSnippet(updatedSnippet);
 
       if(timeOutId) {
@@ -42,7 +47,7 @@ const Editor: React.FC = () => {
       
       timeOutId = setTimeout(() => {
         updateActiveSnippet(updatedSnippet);
-      }, 3000);
+      }, 100);
   };
 
   return (
