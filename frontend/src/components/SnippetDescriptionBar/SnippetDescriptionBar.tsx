@@ -1,9 +1,10 @@
 import React from "react";
-import "./SnippetDescriptionBar.scss";
-import LoaderIcon from "../LoaderIcon/LoaderIcon";
-
-import { useStore } from "../../store";
 import SnippetType from "../../../../common/types/SnippetType";
+import { useStore } from "../../store";
+import { dateFormat } from "../../utils/dateFormat";
+import LoaderIcon from "../LoaderIcon/LoaderIcon";
+import "./SnippetDescriptionBar.scss";
+
 
 const SnippetDescriptionBar: React.FC = () => {
   const {
@@ -22,7 +23,11 @@ const SnippetDescriptionBar: React.FC = () => {
       JSON.stringify(activeSnippet)
     );
 
+    const currentDate = new Date();
     updatedSnippet.description = newDescription;
+    updatedSnippet.date = currentDate;
+    updatedSnippet.dateSearch = dateFormat(currentDate);
+
     changeActiveSnippet(updatedSnippet);
 
     if (timeOutId) {

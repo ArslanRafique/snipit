@@ -1,5 +1,11 @@
 import React from "react";
 import AceEditor from "react-ace";
+import SnippetType from "../../../../common/types/SnippetType";
+import { useStore } from "../../store";
+import { dateFormat } from "../../utils/dateFormat";
+import AddSnippet from "../AddSnippet/AddSnippet";
+import SnippetDescriptionBar from "../SnippetDescriptionBar/SnippetDescriptionBar";
+import "./Editor.scss";
 
 if( process.env.NODE_ENV !== "test") {
   require("ace-builds");
@@ -7,15 +13,9 @@ if( process.env.NODE_ENV !== "test") {
   require("ace-builds/src-noconflict/ext-language_tools");
   require("ace-builds/src-noconflict/ext-beautify");
   require("ace-builds/webpack-resolver");
-  console.log("TEST>>>>>>>>>");
 }
 
-import SnippetDescriptionBar from "../SnippetDescriptionBar/SnippetDescriptionBar";
-import "./Editor.scss";
 
-import { useStore } from "../../store";
-import AddSnippet from "../AddSnippet/AddSnippet";
-import SnippetType from "../../../../common/types/SnippetType";
 
 const Editor: React.FC = () => {
   const { activeSnippet, changeActiveSnippet, updateActiveSnippet } = useStore();
@@ -36,7 +36,11 @@ const Editor: React.FC = () => {
         JSON.stringify(activeSnippet)
       );
 
+      const currentDate = new Date();
       updatedSnippet.content = newCode;
+      updatedSnippet.date = currentDate
+      updatedSnippet.dateSearch = dateFormat(currentDate);
+
       changeActiveSnippet(updatedSnippet);
 
       if(timeOutId) {
@@ -45,7 +49,7 @@ const Editor: React.FC = () => {
       
       timeOutId = setTimeout(() => {
         updateActiveSnippet(updatedSnippet);
-      }, 3000);
+      }, 100);
   };
 
   return (

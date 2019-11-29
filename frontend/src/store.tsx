@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
-import { getFetch, postFetch, deleteFetch, putFetch } from "./services/data";
-import { AsyncUseEffect } from "./utils/AsyncUseEffect";
 import SnippetType from "../../common/types/SnippetType";
+import { deleteFetch, getFetch, postFetch, putFetch } from "./services/data";
+import { AsyncUseEffect } from "./utils/AsyncUseEffect";
 
 interface ContextInterface {
   snippets: SnippetType[];
@@ -31,7 +31,6 @@ const StoreContext = createContext<ContextInterface>({
 const StoreProvider: React.FC<{ children: React.ReactNode }> = ({
   children
 }) => {
-
   const [data, setData] = useState();
   const [backingSnippets, setBackingSnippets] = useState([]);
   const [autoSaving, setAutoSaving] = useState(false);
@@ -51,7 +50,7 @@ const StoreProvider: React.FC<{ children: React.ReactNode }> = ({
 
   /**
    * Creates snippet locally and in backend.
-   * @param newSnippet 
+   * @param newSnippet
    */
   const createSnippet = async (newSnippet: SnippetType) => {
     if (newSnippet && newSnippet.uuid !== "") {
@@ -72,7 +71,7 @@ const StoreProvider: React.FC<{ children: React.ReactNode }> = ({
   /**
    * Update Snippet
    * @param index index of snippet from data -> snippets.
-   * @param updatedSnippet 
+   * @param updatedSnippet
    */
   const updateSnippet = async (index: number, updatedSnippet: SnippetType) => {
     const updatedData = JSON.parse(JSON.stringify(data));
@@ -84,7 +83,7 @@ const StoreProvider: React.FC<{ children: React.ReactNode }> = ({
 
   /**
    * Change Active snippet, which will appear in editor.
-   * @param snippet 
+   * @param snippet
    */
   const changeActiveSnippet = (snippet: SnippetType) => {
     const updatedData = JSON.parse(JSON.stringify(data));
@@ -96,13 +95,16 @@ const StoreProvider: React.FC<{ children: React.ReactNode }> = ({
       updatedData["snippets"][index] = updatedData["activeSnippet"];
     }
 
+    updatedData["snippets"].sort((a: SnippetType, b: SnippetType) =>
+      a.date < b.date ? 1 : -1
+    );
     updatedData["activeSnippet"] = snippet;
     setData(updatedData);
   };
 
   /**
    * Updates changes in active snippet.
-   * @param activeSnippet 
+   * @param activeSnippet
    */
   const updateActiveSnippet = async (activeSnippet: SnippetType) => {
     setAutoSaving(true);
@@ -115,8 +117,8 @@ const StoreProvider: React.FC<{ children: React.ReactNode }> = ({
 
   /**
    * Delete active snipept
-   * @param key 
-   * @param activeSnippetKey 
+   * @param key
+   * @param activeSnippetKey
    */
   const deleteActiveSnippet = async (
     key: string = "snippets",
@@ -151,7 +153,7 @@ const StoreProvider: React.FC<{ children: React.ReactNode }> = ({
 
   /**
    * Search and update context snippets
-   * @param search 
+   * @param search
    */
   const searchSnippet = async (search: string) => {
     const updatedData = JSON.parse(JSON.stringify(data));
@@ -169,12 +171,13 @@ const StoreProvider: React.FC<{ children: React.ReactNode }> = ({
       let snippets: SnippetType[];
 
       // UpperCase may not be a good option, but good enough for now.
-      snippets = searchSnippets.filter(
-        (snap: SnippetType) =>
-          snap.content.toUpperCase().includes(searchString) ||
-          snap.description.toUpperCase().includes(searchString) ||
-          snap.dateSearch.toUpperCase().includes(searchString)
-      ) || [];
+      snippets =
+        searchSnippets.filter(
+          (snap: SnippetType) =>
+            snap.content.toUpperCase().includes(searchString) ||
+            snap.description.toUpperCase().includes(searchString) ||
+            snap.dateSearch.toUpperCase().includes(searchString)
+        ) || [];
 
       setData({ snippets, activeSnippet: undefined });
     } else {
@@ -216,3 +219,4 @@ const useStore = () => {
 };
 
 export { StoreContext, StoreProvider, useStore };
+
