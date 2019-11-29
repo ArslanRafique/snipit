@@ -6,7 +6,7 @@ import AddSnippet from "../AddSnippet/AddSnippet";
 import SnippetDescriptionBar from "../SnippetDescriptionBar/SnippetDescriptionBar";
 import "./Editor.scss";
 
-if( process.env.NODE_ENV !== "test") {
+if(process.env.NODE_ENV !== "test") {
   require("ace-builds");
   require("ace-builds/src-noconflict/theme-monokai");
   require("ace-builds/src-noconflict/ext-language_tools");
