@@ -1,21 +1,18 @@
 import React from "react";
 import AceEditor from "react-ace";
+import SnippetType from "../../../../common/types/SnippetType";
+import { useStore } from "../../store";
+import AddSnippet from "../AddSnippet/AddSnippet";
+import SnippetDescriptionBar from "../SnippetDescriptionBar/SnippetDescriptionBar";
+import "./Editor.scss";
 
-if( process.env.NODE_ENV !== "test") {
+if(process.env.NODE_ENV !== "test") {
   require("ace-builds");
   require("ace-builds/src-noconflict/theme-monokai");
   require("ace-builds/src-noconflict/ext-language_tools");
   require("ace-builds/src-noconflict/ext-beautify");
   require("ace-builds/webpack-resolver");
-  console.log("TEST>>>>>>>>>");
 }
-
-import SnippetDescriptionBar from "../SnippetDescriptionBar/SnippetDescriptionBar";
-import "./Editor.scss";
-
-import { useStore } from "../../store";
-import AddSnippet from "../AddSnippet/AddSnippet";
-import SnippetType from "../../../../common/types/SnippetType";
 
 const Editor: React.FC = () => {
   const { activeSnippet, changeActiveSnippet, updateActiveSnippet } = useStore();
@@ -61,9 +58,9 @@ const Editor: React.FC = () => {
         editorProps={{ $blockScrolling: true }}
         value={(activeSnippet && activeSnippet.content) || ""}
         setOptions={{
-          enableBasicAutocompletion: true,
-          enableLiveAutocompletion: true,
-          enableSnippets: true,
+          enableBasicAutocompletion: false,
+          enableLiveAutocompletion: false,
+          enableSnippets: false,
           showLineNumbers: true,
           tabSize: 2,
           }}
